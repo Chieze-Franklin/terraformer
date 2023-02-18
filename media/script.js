@@ -20,16 +20,14 @@
 	/**
 	 * Render the document in the webview.
 	 */
-	function updateContent(/** @type {string} */ text) {
+	function updateContent(/** @type {string} */ text, /** @type {number} */ port) {
 		if (!text) {
             text = '{}';
         }
 		errorContainer.style.display = 'none';
 
-		vscode.postMessage({ type: 'err', url: encodeURIComponent(text), });
-
 		// change iframe src
-		iframe.src = `https://terraform-visualizer.netlify.app/?content=${encodeURIComponent(text)}`;
+		iframe.src = `http://localhost:${port}/?content=${encodeURIComponent(text)}`;
 	}
 
 	// Handle messages sent from the extension to the webview
@@ -38,13 +36,14 @@
 		switch (message.type) {
 			case 'update':
 				const text = message.text;
+				const port = message.port;
 
 				// Update our webview's content
-				updateContent(text);
+				updateContent(text, port);
 
 				// Then persist state information.
 				// This state is returned in the call to `vscode.getState` below when a webview is reloaded.
-				vscode.setState({ text });
+				vscode.setState({ text, port });
 
 				return;
 		}
@@ -54,6 +53,6 @@
 	// State lets us save information across these re-loads
 	const state = vscode.getState();
 	if (state) {
-		updateContent(state.text);
+		updateContent(state.text, state.port);
 	}
 }());
