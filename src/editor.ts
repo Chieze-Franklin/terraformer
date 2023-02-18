@@ -1,16 +1,27 @@
 import * as vscode from 'vscode';
+// import * as express from 'express';
 import { getNonce } from './util';
 
 export class TerraformerEditorProvider implements vscode.CustomTextEditorProvider {
     public static register(context: vscode.ExtensionContext): vscode.Disposable {
+		// console.log('>>>>>>>path:', vscode.Uri.joinPath(context.extensionUri, 'visualizer').fsPath);
+		// TerraformerEditorProvider.server.use(express.static(vscode.Uri.joinPath(context.extensionUri, 'visualizer').fsPath));
+		// TerraformerEditorProvider.server.get('/', function (req, res) {
+		// 	res.sendFile(vscode.Uri.joinPath(context.extensionUri, 'visualizer', 'index.html').fsPath);
+		// });
+		// try {
+		// 	TerraformerEditorProvider.server.listen(9000);
+		// } catch (e) {
+		// 	console.log('>>>>error:', e);
+		// }
+
 		const provider = new TerraformerEditorProvider(context);
 		const providerRegistration = vscode.window.registerCustomEditorProvider(TerraformerEditorProvider.viewType, provider);
 		return providerRegistration;
 	}
 
     private static readonly viewType = 'terraformer.editor';
-
-    private static readonly scratchCharacters = ['😸', '😹', '😺', '😻', '😼', '😽', '😾', '🙀', '😿', '🐱'];
+	// private static server = express();
 
     constructor(
 		private readonly context: vscode.ExtensionContext

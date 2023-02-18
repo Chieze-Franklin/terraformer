@@ -29,7 +29,8 @@
 		vscode.postMessage({ type: 'err', url: encodeURIComponent(text), });
 
 		// change iframe src
-		iframe.src = `https://terraform-visualizer.netlify.app/?content=${encodeURIComponent(text)}`;
+		// iframe.src = `https://terraform-visualizer.netlify.app/?content=${encodeURIComponent(text)}`;
+		iframe.src = `http://localhost:9000/?content=${encodeURIComponent(text)}`;
 	}
 
 	// Handle messages sent from the extension to the webview
