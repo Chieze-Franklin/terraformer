@@ -98,6 +98,7 @@ export class TerraformerEditorProvider implements vscode.CustomTextEditorProvide
             <!DOCTYPE html>
             <html lang="en">
                 <head>
+					<title>Terraform Visualizer</title>
                 </head>
                 <body>
                     <iframe id="inlineFrame"
