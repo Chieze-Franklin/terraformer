@@ -1,19 +1,21 @@
 import * as vscode from 'vscode';
-// import * as express from 'express';
+import * as express from 'express';
 import { getNonce } from './util';
+import { AddressInfo } from 'net';
 
 export class TerraformerEditorProvider implements vscode.CustomTextEditorProvider {
     public static register(context: vscode.ExtensionContext): vscode.Disposable {
-		// console.log('>>>>>>>path:', vscode.Uri.joinPath(context.extensionUri, 'visualizer').fsPath);
-		// TerraformerEditorProvider.server.use(express.static(vscode.Uri.joinPath(context.extensionUri, 'visualizer').fsPath));
-		// TerraformerEditorProvider.server.get('/', function (req, res) {
-		// 	res.sendFile(vscode.Uri.joinPath(context.extensionUri, 'visualizer', 'index.html').fsPath);
-		// });
-		// try {
-		// 	TerraformerEditorProvider.server.listen(9000);
-		// } catch (e) {
-		// 	console.log('>>>>error:', e);
-		// }
+		TerraformerEditorProvider.server.use(express.static(vscode.Uri.joinPath(context.extensionUri, 'visualizer').fsPath));
+		TerraformerEditorProvider.server.get('/', function (req, res) {
+			res.sendFile(vscode.Uri.joinPath(context.extensionUri, 'visualizer', 'index.html').fsPath);
+		});
+		try {
+			const server = TerraformerEditorProvider.server.listen(0, () => {
+				TerraformerEditorProvider.port = (server.address() as AddressInfo)?.port;
+			});
+		} catch (e) {
+			console.log('Error:', e);
+		}
 
 		const provider = new TerraformerEditorProvider(context);
 		const providerRegistration = vscode.window.registerCustomEditorProvider(TerraformerEditorProvider.viewType, provider);
@@ -21,7 +23,8 @@ export class TerraformerEditorProvider implements vscode.CustomTextEditorProvide
 	}
 
     private static readonly viewType = 'terraformer.editor';
-	// private static server = express();
+	private static server = express();
+	private static port = 0;
 
     constructor(
 		private readonly context: vscode.ExtensionContext
@@ -45,6 +48,7 @@ export class TerraformerEditorProvider implements vscode.CustomTextEditorProvide
 			webviewPanel.webview.postMessage({
 				type: 'update',
 				text: document.getText(),
+				port: TerraformerEditorProvider.port,
 			});
 		};
 
@@ -70,14 +74,8 @@ export class TerraformerEditorProvider implements vscode.CustomTextEditorProvide
         // Receive message from the webview.
 		webviewPanel.webview.onDidReceiveMessage(e => {
 			switch (e.type) {
-				case 'add':
-					// this.addNewScratch(document);
-					return;
-
 				case 'err':
-					// this.deleteScratch(document, e.id);
-					console.log('>>>>>>>>>>>>>>error');
-            		console.log(e.url);
+					// do something
 					return;
 			}
 		});
@@ -102,12 +100,12 @@ export class TerraformerEditorProvider implements vscode.CustomTextEditorProvide
                 <head>
                 </head>
                 <body>
-                    <iframe id="inlineFrameExample"
-                        title="Inline Frame Example"
+                    <iframe id="inlineFrame"
+                        title="Inline Frame"
                         width="100%"
                         height="1000px"
                         class="visualizer"
-                        src="https://terraform-visualizer.netlify.app/">
+                        src="http://localhost:${TerraformerEditorProvider.port}/">
                     </iframe>
 
                     <script nonce="${nonce}" src="${scriptUri}"></script>
