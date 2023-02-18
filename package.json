@@ -1,14 +1,12 @@
 {
   "name": "terraformer",
   "displayName": "Terraformer",
-  "description": "A VS Code custom visual editor for Terraform files",
+  "description": "A VS Code custom visual editor for visualizing Terraform files",
   "version": "0.0.3",
   "engines": {
     "vscode": "^1.74.0"
   },
-  "categories": [
-    "Other"
-  ],
+  "categories": [],
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
@@ -21,7 +19,7 @@
     "customEditors": [
       {
         "viewType": "terraformer.editor",
-        "displayName": "Terraformer Editor",
+        "displayName": "Terraformer Visualizer",
         "selector": [
           {
             "filenamePattern": "*.tf"
@@ -58,7 +56,7 @@
     "url": "https://github.com/Chieze-Franklin/terraform-visualizer.git"
   },
   "dependencies": {
-    "@evops/hcl-terraform-parser": "^1.0.0",
     "@types/vscode": "^1.74.0"
-  }
+  },
+  "keywords": []
 }
