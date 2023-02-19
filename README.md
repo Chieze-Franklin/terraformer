@@ -5,6 +5,8 @@
   Your browser does not support the video tag.
 </video>
 
+https://user-images.githubusercontent.com/6097630/219801816-44a3c629-1243-461f-abe3-5de9f9a35b49.mp4
+
 A VS Code custom editor for visualizing Terraform (*.tf) files.
 
 It's based on the [terraform-visualizer project](https://github.com/Chieze-Franklin/terraform-visualizer).
