@@ -1,6 +1,9 @@
 # Terraformer
 
-https://user-images.githubusercontent.com/6097630/219801816-44a3c629-1243-461f-abe3-5de9f9a35b49.mp4
+<video controls>
+  <source src="https://user-images.githubusercontent.com/6097630/219801816-44a3c629-1243-461f-abe3-5de9f9a35b49.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 A VS Code custom editor for visualizing Terraform (*.tf) files.
 
