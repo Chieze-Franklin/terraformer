@@ -30,3 +30,9 @@ All notable changes to the "terraform-visualizer" extension will be documented i
 ### Fixed
 
 - An issue that broke the visualizer whenever the value of a field in a resource or module was `null`
+
+## [0.0.9] - 2023-03-02
+
+### Fixed
+
+- An issue with edges for resources not showing
