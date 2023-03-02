@@ -11,9 +11,7 @@ A VS Code custom editor for visualizing Terraform (*.tf) files.
 
 It's based on the [terraform-visualizer project](https://github.com/Chieze-Franklin/terraform-visualizer).
 
-After installing the extension simply double-click `*.tf` files to open them in Terraformer.
-
-Alternatively, you can right-click on the files and click on `Open With...`
+After installing the extension simply right-click on any `*.tf` file and click on `Open With...`
 
 <img width="368" alt="Screenshot 2023-02-18 at 15 48 34" src="https://user-images.githubusercontent.com/6097630/219872219-173157c8-181a-4889-bc76-5786ea8bcefb.png">
 
