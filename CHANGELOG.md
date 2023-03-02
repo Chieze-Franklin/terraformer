@@ -24,3 +24,9 @@ All notable changes to the "terraform-visualizer" extension will be documented i
 ### Changed
 
 - Stop installing Terraformer as default viewer for *.tf files (let the user explicitly choose it)
+
+## [0.0.8] - 2023-03-02
+
+### Fixed
+
+- An issue that broke the visualizer whenever the value of a field in a resource or module was `null`
