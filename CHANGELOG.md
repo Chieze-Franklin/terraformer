@@ -36,3 +36,14 @@ All notable changes to the "terraform-visualizer" extension will be documented i
 ### Fixed
 
 - An issue with edges for resources not showing
+
+## [0.1.0] - 2023-03-05
+
+### Added
+
+- Better detection of variables in string values.
+    > For instance, from the given expression:
+    > `base_api_url_sdworx = jsondecode(module.lepaya_stack.rds_db_dns_address, module.network.network_subnet_groups)`
+    > The visualizer can now detect the variables `module.lepaya_stack` and `module.network` so that we have 2 lines originating from the `base_api_url_sdworx` attribute and heading to the modules `lepaya_stack` and `network` (as seen in the image below).
+    >
+    > <img width="1135" alt="Screenshot 2023-03-05 at 21 23 04" src="https://user-images.githubusercontent.com/6097630/222984403-eb2ffebc-11f4-4255-bdd5-5435331ccf4b.png">
