@@ -41,7 +41,9 @@ All notable changes to the "terraform-visualizer" extension will be documented i
 
 ### Added
 
-- Better detection of variables in string values.
+- Ability to visualize variables as nodes
+- Ability to visualize dependencies on variables as edges
+- Better detection of variable references in the form of `a.b` in string values.
     > For instance, from the given expression:
     > `base_api_url_sdworx = jsondecode(module.lepaya_stack.rds_db_dns_address, module.network.network_subnet_groups)`
     > The visualizer can now detect the variables `module.lepaya_stack` and `module.network` so that we have 2 lines originating from the `base_api_url_sdworx` attribute and heading to the modules `lepaya_stack` and `network` (as seen in the image below).
