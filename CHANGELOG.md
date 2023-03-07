@@ -61,3 +61,11 @@ All notable changes to the "terraform-visualizer" extension will be documented i
 ### Changed
 
 - Move handles (to which the animated lines are connected) from the left to the right
+
+## [0.1.2] - 2023-03-07
+
+### Changed
+
+- All variables are now visualized in one node instead of different nodes
+    >
+    > <img width="460" alt="Screenshot 2023-03-07 at 19 47 10" src="https://user-images.githubusercontent.com/6097630/223522140-fc4fe84c-ef85-42c8-b19b-5f5414a254fc.png">
