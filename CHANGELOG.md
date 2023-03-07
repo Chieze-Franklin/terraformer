@@ -49,3 +49,15 @@ All notable changes to the "terraform-visualizer" extension will be documented i
     > The visualizer can now detect the variables `module.lepaya_stack` and `module.network` so that we have 2 lines originating from the `base_api_url_sdworx` attribute and heading to the modules `lepaya_stack` and `network` (as seen in the image below).
     >
     > <img width="1135" alt="Screenshot 2023-03-05 at 21 23 04" src="https://user-images.githubusercontent.com/6097630/222984403-eb2ffebc-11f4-4255-bdd5-5435331ccf4b.png">
+
+## [0.1.1] - 2023-03-07
+
+### Added
+
+- Ability to visualize locals as nodes
+- Ability to visualize dependencies on locals as edges
+- A minimap to the bottom right of the page to help visualize your entire graph
+
+### Changed
+
+- Move handles (to which the animated lines are connected) from the left to the right
