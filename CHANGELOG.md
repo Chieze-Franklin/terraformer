@@ -69,3 +69,19 @@ All notable changes to the "terraform-visualizer" extension will be documented i
 - All variables are now visualized in one node instead of different nodes
     >
     > <img width="460" alt="Screenshot 2023-03-07 at 19 47 10" src="https://user-images.githubusercontent.com/6097630/223522140-fc4fe84c-ef85-42c8-b19b-5f5414a254fc.png">
+
+## [0.1.3] - 2023-03-08
+
+### Added
+
+- Ability to visualize data as nodes
+- Ability to visualize dependencies on data as edges
+
+### Changed
+
+- Nodes are now stacked to better utilize space
+    >
+    > Before now nodes were stacked by type. You couldn't have different nodes on a row. This led to a lot of wasted spaces, as seen below.
+    > <img width="460" alt="Screenshot 2023-03-07 at 19 47 10" src="https://user-images.githubusercontent.com/6097630/223522140-fc4fe84c-ef85-42c8-b19b-5f5414a254fc.png">
+    >
+    > Now nodes are stacked in a way to efficiently utilizes available spaces.
