@@ -82,6 +82,9 @@ All notable changes to the "terraform-visualizer" extension will be documented i
 - Nodes are now stacked to better utilize space
     >
     > Before now nodes were stacked by type. You couldn't have different nodes on a row. This led to a lot of wasted spaces, as seen below.
-    > <img width="460" alt="Screenshot 2023-03-07 at 19 47 10" src="https://user-images.githubusercontent.com/6097630/223522140-fc4fe84c-ef85-42c8-b19b-5f5414a254fc.png">
+    >
+    > <img width="573" alt="Screenshot 2023-03-08 at 00 39 47" src="https://user-images.githubusercontent.com/6097630/223591917-81689f80-9734-4a61-afd5-3ea312d5d020.png">
     >
     > Now nodes are stacked in a way to efficiently utilizes available spaces.
+    >
+    > <img width="1124" alt="Screenshot 2023-03-08 at 01 16 55" src="https://user-images.githubusercontent.com/6097630/223591930-3a51f573-0157-4166-afce-bfab42b70db3.png">
