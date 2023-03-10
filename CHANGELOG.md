@@ -88,3 +88,18 @@ All notable changes to the "terraform-visualizer" extension will be documented i
     > Now nodes are stacked in a way to efficiently utilizes available spaces.
     >
     > <img width="1124" alt="Screenshot 2023-03-08 at 01 16 55" src="https://user-images.githubusercontent.com/6097630/223591930-3a51f573-0157-4166-afce-bfab42b70db3.png">
+
+## [0.1.4] - 2023-03-10
+
+### Added
+
+- Ability to upload Terraform files for visualization on the [standalone version](https://terraform-visualizer.netlify.app/).
+    >
+    > <img width="465" alt="Screenshot 2023-03-10 at 01 28 43" src="https://user-images.githubusercontent.com/6097630/224192196-2d5316c0-8a7f-49ef-9302-b64c1d5e3841.png">
+- Color-code nodes in the mini map (bottom right corner of the canvas)
+    >
+    > <img width="1244" alt="Screenshot 2023-03-10 at 01 37 09" src="https://user-images.githubusercontent.com/6097630/224193358-897e3cff-b8fe-4c02-b63d-4172680efc99.png">
+
+### Fixed
+
+- The canvas now fits into the VS Code window

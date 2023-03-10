@@ -90,6 +90,8 @@ export class TerraformerEditorProvider implements vscode.CustomTextEditorProvide
         // Local path to script and css for the webview
 		const scriptUri = webview.asWebviewUri(vscode.Uri.joinPath(
 			this.context.extensionUri, 'media', 'script.js'));
+		const stylesUri = webview.asWebviewUri(vscode.Uri.joinPath(
+			this.context.extensionUri, 'media', 'styles.css'));
 
         // Use a nonce to whitelist which scripts can be run
 		const nonce = getNonce();
@@ -99,12 +101,13 @@ export class TerraformerEditorProvider implements vscode.CustomTextEditorProvide
             <html lang="en">
                 <head>
 					<title>Terraform Visualizer</title>
+					<link href="${stylesUri}" rel="stylesheet>
                 </head>
                 <body>
                     <iframe id="inlineFrame"
                         title="Inline Frame"
                         width="100%"
-                        height="1000px"
+						height="100vh"
                         class="visualizer"
                         src="http://localhost:${TerraformerEditorProvider.port}/">
                     </iframe>
