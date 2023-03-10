@@ -27,7 +27,8 @@
 		errorContainer.style.display = 'none';
 
 		// change iframe src
-		iframe.src = `http://localhost:${port}/?content=${encodeURIComponent(text)}`;
+		iframe.style.height = '100vh';
+		iframe.src = `http://localhost:${port}/?integrated=true&content=${encodeURIComponent(text)}`;
 	}
 
 	// Handle messages sent from the extension to the webview
