@@ -2,6 +2,7 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 import { TerraformerEditorProvider } from './editor';
+import { showInfo } from './util';
 
 // This method is called when the extension is activated
 export function activate(context: vscode.ExtensionContext) {
@@ -9,7 +10,7 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(TerraformerEditorProvider.register(context));
 
 	// This line of code will only be executed once when the extension is activated
-	console.log('Congratulations, your extension "terraformer" is now active!');
+	showInfo('Terraformer activated!');
 }
 
 // This method is called when the extension is deactivated

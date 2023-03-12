@@ -111,3 +111,9 @@ All notable changes to the "terraform-visualizer" extension will be documented i
 - Ability to provide the Terraform config by typing it into the in-app text editor on the [standalone version](https://terraform-visualizer.netlify.app/).
     >
     > <img width="1508" alt="Screenshot 2023-03-11 at 02 35 45" src="https://user-images.githubusercontent.com/6097630/224459698-4b3a9435-99c4-4039-9529-c3b52bfe75c7.png">
+
+## [0.1.6] - 2023-03-12
+
+### Fixed
+
+- An issue preventing Terraformer from loading has now been fixed.
