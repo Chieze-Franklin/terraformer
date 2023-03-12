@@ -26,6 +26,8 @@
         }
 		errorContainer.style.display = 'none';
 
+		// vscode.postMessage({ type: 'err', url: `http://localhost:${port}` });
+
 		// change iframe src
 		iframe.style.height = '100vh';
 		iframe.src = `http://localhost:${port}/?integrated=true&content=${encodeURIComponent(text)}`;

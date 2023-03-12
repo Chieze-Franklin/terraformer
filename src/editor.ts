@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
-import * as express from 'express';
-import { getNonce } from './util';
+import express from 'express';
+import { getNonce, showError } from './util';
 import { AddressInfo } from 'net';
 
 export class TerraformerEditorProvider implements vscode.CustomTextEditorProvider {
@@ -14,7 +14,7 @@ export class TerraformerEditorProvider implements vscode.CustomTextEditorProvide
 				TerraformerEditorProvider.port = (server.address() as AddressInfo)?.port;
 			});
 		} catch (e) {
-			console.log('Error:', e);
+			showError('Error starting server: ' + (e as any).message ? (e as any).message : e);
 		}
 
 		const provider = new TerraformerEditorProvider(context);
@@ -75,7 +75,7 @@ export class TerraformerEditorProvider implements vscode.CustomTextEditorProvide
 		webviewPanel.webview.onDidReceiveMessage(e => {
 			switch (e.type) {
 				case 'err':
-					// do something
+					//
 					return;
 			}
 		});
@@ -90,8 +90,6 @@ export class TerraformerEditorProvider implements vscode.CustomTextEditorProvide
         // Local path to script and css for the webview
 		const scriptUri = webview.asWebviewUri(vscode.Uri.joinPath(
 			this.context.extensionUri, 'media', 'script.js'));
-		const stylesUri = webview.asWebviewUri(vscode.Uri.joinPath(
-			this.context.extensionUri, 'media', 'styles.css'));
 
         // Use a nonce to whitelist which scripts can be run
 		const nonce = getNonce();
@@ -101,7 +99,6 @@ export class TerraformerEditorProvider implements vscode.CustomTextEditorProvide
             <html lang="en">
                 <head>
 					<title>Terraform Visualizer</title>
-					<link href="${stylesUri}" rel="stylesheet>
                 </head>
                 <body>
                     <iframe id="inlineFrame"
@@ -109,7 +106,7 @@ export class TerraformerEditorProvider implements vscode.CustomTextEditorProvide
                         width="100%"
 						height="100vh"
                         class="visualizer"
-                        src="http://localhost:${TerraformerEditorProvider.port}/">
+                        src="http://localhost:${TerraformerEditorProvider.port}/?integrated=true">
                     </iframe>
 
                     <script nonce="${nonce}" src="${scriptUri}"></script>
